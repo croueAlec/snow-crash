@@ -1,5 +1,5 @@
 # Download file and inspect the code with Ghidra
-`scp -P 4242 level03@192.168.56.102:level03 .`
+`scp -P 4242 level03@<VM address>:level03 .`
 
 # Exploit call to echo with no absolut path by creating or custom script
 ```bash
