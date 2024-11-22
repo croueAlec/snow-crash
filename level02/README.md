@@ -7,4 +7,5 @@
 # Switch user and get the flag
 ```bash
 su flag02
-getflag```
+getflag
+```
