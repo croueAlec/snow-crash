@@ -14,14 +14,14 @@ Where we are
 
 What we have access to
 
->find / -user <us> 2>/dev/null
+>find / -user \<us\> 2>/dev/null
 
->find / -name "*<us>" 2>/dev/null
+>find / -name "*\<us\>" 2>/dev/null
 
 >sudo -l
 
 What the goal has access to
 
->find / -user <target> 2>/dev/null
+>find / -user \<target\> 2>/dev/null
 
->find / -name "*<target>" 2>/dev/null
+>find / -name "*\<target\>" 2>/dev/null
