@@ -1,12 +1,12 @@
-# Download file to have root permissions on local machine
-`scp -P 4242 level02@<VM address>:level08 .`
+# Level08
 
-# Token file cannot directly be openned so we'll use a symlink to bypass this
-`ln -s /home/user/level08/token /tmp/flag`
+The `level08` program takes a file as parameter, but we need to have access to this file.
+Let's create a symlink to `token` to overide this security.
+>`ln -s /home/user/level08/token /tmp/flag`
 
-# Get the token and the flag
-```bash
-./level8 /tmp/flag
-su flag08
-getflag
-```
+Get the password and the flag.
+>`./level8 /tmp/flag`
+
+>`su flag08`
+
+>`getflag`
