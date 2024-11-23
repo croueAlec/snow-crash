@@ -8,6 +8,8 @@ Decode the password with ***John The Ripper***.
 
 >`john pass --show`
 
+>abcdefg
+
 Switch user and get the flag.
 >`su flag01`
 
