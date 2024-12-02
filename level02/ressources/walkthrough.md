@@ -7,7 +7,7 @@ Using Wireshark to analyze the *pcap* file we can do `Analyze > Follow > TCP Str
 >`Password: ft_wandr...NDRel.L0L`
 
 The `.` are representation of non printable data, change the data representation from ASCII to Hex Dump to get their real value.
-The `.` are actually `DEL` chars, so for every dot we need to remove the char which precedes it.\
+The `.` are actually `DEL` chars, so for every dot we need to remove the char which precedes it.
 >`ft_wandr...NDRel.L0L` -> `ft_waNDReL0L`
 
 Switch user and get the flag.
