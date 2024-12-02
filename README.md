@@ -2,10 +2,10 @@
 
 ## Setting up the project
 
-To set-up the project we need to download the Snow-crash ISO from the intra project page.
-Once done we create a new VM with at least 4096 RAM and 4 Cores.
-Then we go to the Settings and under `Network` we change `Attached to:` **Host-only Adapter**.
-Once that is done we can boot the VM.
+To set-up the project we need to download the Snow-crash ISO from the intra project page.  
+Once done we create a new VM with at least 2048 RAM and 1 Cores.  
+Then we go to the Settings and under `Network` we change `Attached to:` **Host-only Adapter**.  
+Once that is done we can boot the VM.  
 
 ## Methodology
 
