@@ -1,31 +1,47 @@
 # Level14
 
-Download file to decompile it with ***Ghidra***.
->`scp -P 4242 level14@<VM address>:/bin/getflag .`
+When we check what we have access to we don't find anything useful, even when using `find /` like we did before.  
+The only thing left to break is `getflag` but this we're not even going to be decompiling the binary !  
 
-We need to override `ptrace` and `getuid` security. Let's use `gbd` to do so.
->`gdb -q getflag`
+First, let's use strings on `getflag`
+>`strings /bin/getflag`
 
->`b main`
+We can see a lot of text here but the one which interests us is this one `boe]!ai0FB@.:|L6l@A?>qJ}I`, where have we seen it before ?  
+In the level13 decompiled binary, when it was called as a parameter to the nebulous function `ft_des`.  
+Let's look into that.
 
->`r`
+Let's use GDB to disassemble the main.
+>`gdb /bin/getflag`
+>`start`
+>`disass main`
 
->`disassemble main`
+Here we can deduct that `getflag` is basically just a huge Else If that takes our current UID and returns the matching token. We could impersonate any UID and trick the binary into giving us a specific token, or we could reverse engineer the `ft_des` function to it to decypher the tokens we saw using `strings`. Let's do that.
 
-Set a breakpoint to the address just after the call to `ptrace`.
->`b *<address>`
+So, outside our VM we'll copy the `ft_des` function in a .c file, add the necessary headers and typedef, and a basic main.
+This should give us :
 
->`c`
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+typedef unsigned int uint;
+typedef unsigned char byte;
 
-Set the return value to 1.
->`set $eax = 1`
+char * ft_des(...)
+{
+...
+}
 
-Set a breakpoint to the address just after the call to `getuid`.
->`b *<address>`
+int main(int argc, char **argv)
+{
+  if (argc != 2)
+    return 1;
+  printf("the decyphered flag is %s\n", ft_des(argv[1));
+  return 0;
+}
+```
 
->`c`
+Finally we can compile this code and decypher the tokens inside getflag !
 
-Set the return value to 3014 to get the flag.
->`set $eax = 3014`
-
-`c`
+>`./a.out 'g <t61:|4_|!@IF.-62FH&G~DCK/Ekrvvdwz?v|'`  
+gives us `7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ`
