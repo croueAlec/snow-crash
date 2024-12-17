@@ -23,5 +23,5 @@ Then we set the program count to that instruction and continue.
 >`continue`
 >Your token is 2A31L79asukciNyi8uppkEuSx
 
-We can then close gdb and `su flag13` using our token.  
+We can then close gdb and `su level14` using our token.  
 Let's keep the *Ghidra* page open, we'll need it for **level14**.
