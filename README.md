@@ -4,7 +4,8 @@
 
 To set-up the project we need to download the Snow-crash ISO from the intra project page.  
 Once done we create a new VM with at least 2048 RAM and 1 Cores.  
-Then we go to the Settings and under `Network` we change `Attached to:` **Host-only Adapter**.  
+Then we under `File > Tools > Network Manager` we make sure there is at least one `Host-only Network`. If not we `Create` it.  
+Finally we go to the VM Settings and under `Network` we change `Attached to:` **Host-only Adapter**.  
 Once that is done we can boot the VM.  
 
 ## Methodology
